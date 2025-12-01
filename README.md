@@ -13,7 +13,7 @@ El programa permite modelar un menú, pedidos, mesas y clientes, demostrando có
 
 ---
 
-## 🚀 Objetivos del proyecto
+## Objetivos del proyecto
 
 - Aplicar POO a un caso realista.
 - Utilizar herencia para representar distintos tipos de elementos del menú.
@@ -24,7 +24,7 @@ El programa permite modelar un menú, pedidos, mesas y clientes, demostrando có
 
 ---
 
-## 🧱 Estructura del Sistema
+## Estructura del Sistema
 
 El sistema modela un restaurante con:
 
@@ -45,3 +45,9 @@ Representa un cliente asignado a una mesa.
 
 ### ✔ **Restaurante**
 Contiene mesas y el menú completo.
+
+---
+
+## Diagrama UML de clases
+
+![Diagrama UML](diagram/UML_diagram.png)
