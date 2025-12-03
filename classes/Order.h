@@ -2,6 +2,7 @@
 #define ORDER_h
 
 #include <vector>
+#include "MenuItem.h"
 
 class Order
 {
@@ -21,7 +22,6 @@ public:
  *
  * @param item The item to add.
  */
-
 void Order::addItem(MenuItem *item)
 {
     items.push_back(item);

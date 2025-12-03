@@ -9,9 +9,10 @@ private:
     Size size;
 
 public:
-    Drink(string name, double price, Size size) : MenuItem(name, price), size(size) {}
+    Drink(string name, double price, Size size = SMALL) : MenuItem(name, price), size(size) {}
 
     double calculatePrice() override;
+    void setSize(Size size);
 };
 
 /**
@@ -38,6 +39,20 @@ double Drink::calculatePrice()
         break;
     }
     return 0;
+}
+
+/**
+ * @brief Sets the size of the drink item.
+ *
+ * @param size The new size of the drink item.
+ *
+ * This function sets the size of the drink item to the specified value.
+ * The size is used to calculate the price of the drink item.
+ * See `calculatePrice()` for more information on how the price is calculated based on the size.
+ */
+void Drink::setSize(Size size)
+{
+    this->size = size;
 }
 
 #endif

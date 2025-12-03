@@ -31,7 +31,7 @@ El sistema modela un restaurante con:
 ### ✔ **Artículo (clase base)**
 Clase abstracta para cualquier ítem del menú.
 
-### ✔ **Alimento y Bebida (heredan de Articulo)**
+### ✔ **Alimento, Bebida y Postre (heredan de Articulo)**
 Cada uno modifica el cálculo del precio mediante polimorfismo.
 
 ### ✔ **Pedido**

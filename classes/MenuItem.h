@@ -20,7 +20,7 @@ public:
 
 ostream &operator<<(ostream &out, MenuItem *item)
 {
-    out << "(" << item->getName() << ") - $" << item->calculatePrice() << endl;
+    out << item->getName() << " - $" << round(item->calculatePrice()) << endl;
     return out;
 }
 

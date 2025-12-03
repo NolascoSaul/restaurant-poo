@@ -12,12 +12,7 @@ using namespace std;
 
 int main()
 {
-    MenuItem *d = new Drink("Coca", 10, MEDIUM);
-    MenuItem *f = new Food("Nuggets", 80, true);
-
     Restaurant r;
-    r.addMenuItem(d);
-    r.addMenuItem(f);
 
     r.showMenu();
     return 0;

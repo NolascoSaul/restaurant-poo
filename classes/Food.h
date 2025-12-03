@@ -9,9 +9,10 @@ private:
     bool isKidsMeal;
 
 public:
-    Food(string name, double price, bool isKM) : MenuItem(name, price), isKidsMeal(isKM) {}
+    Food(string name, double price, bool isKM = false) : MenuItem(name, price), isKidsMeal(isKM) {}
 
     double calculatePrice() override;
+    void setKidsMeal(bool isKM);
 };
 
 /**
@@ -25,6 +26,17 @@ double Food::calculatePrice()
         return price * 0.8;
     }
     return price;
+}
+
+/**
+ * @brief Sets whether the food item is a kids' meal or not.
+ *
+ * If the food item is a kids' meal, its price will be discounted by 20%.
+ * @param isKM Whether the food item is a kids' meal or not.
+ **/
+void Food::setKidsMeal(bool isKM)
+{
+    isKidsMeal = isKM;
 }
 
 #endif
