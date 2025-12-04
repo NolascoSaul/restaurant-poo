@@ -14,7 +14,7 @@ public:
     Order() {}
 
     void addItem(MenuItem *item);
-    double calculateTotal();
+    double calculateOrder();
 };
 
 /**
@@ -24,6 +24,7 @@ public:
  */
 void Order::addItem(MenuItem *item)
 {
+    cout << "Se agregó " << item->getName() << " a su orden" << endl;
     items.push_back(item);
 }
 
@@ -32,7 +33,7 @@ void Order::addItem(MenuItem *item)
  *
  * @return The total price of all items in the order.
  */
-double Order::calculateTotal()
+double Order::calculateOrder()
 {
     double sum = 0;
     for (int i = 0; i < items.size(); i++)

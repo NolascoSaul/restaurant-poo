@@ -2,6 +2,7 @@
 #define RESTAURANT_h
 
 #include <vector>
+#include <optional>
 #include "MenuItem.h"
 #include "Table.h"
 #include "Dessert.h"
@@ -12,26 +13,15 @@ class Restaurant
 {
 private:
     vector<MenuItem *> menu;
-    vector<Table *> tables;
-    int numTables; // Tables available in the restaurant
+    vector<Table> tables;
+    int numTables = 10; // Tables available in the restaurant
 
 public:
-    Restaurant(int numTables = 10)
-    {
-        // Default menu
-        menu.push_back(new Food("Torta", 30));
-        menu.push_back(new Food("Taco", 15));
-        menu.push_back(new Food("Nuggets", 65));
-        menu.push_back(new Drink("Coca", 10));
-        menu.push_back(new Drink("Horchata", 15));
-        menu.push_back(new Drink("Jamaica", 15));
-        menu.push_back(new Dessert("Cheesecake", 30));
-        menu.push_back(new Dessert("Brownie", 20));
-    }
+    Restaurant() {}
 
-    Restaurant(vector<MenuItem *> menu, vector<Table *> tables, int nTables = 10) : menu(menu), tables(tables), numTables(nTables) {}
+    Restaurant(vector<MenuItem *> menu) : menu(menu) {}
 
-    void addTable();
+    optional<Table> addTable();
     void addMenuItem(MenuItem *item);
     void showMenu();
 };
@@ -39,25 +29,24 @@ public:
 /**
  * @brief Adds a table to the restaurant.
  *
- * @param number The number of the table to add.
+ * This function adds a table to the restaurant and returns the added table.
+ * If there are no more tables available, it prints an error message and exits the program.
  *
- * This function adds a table to the restaurant's list of tables.
- * If there are available tables,
- * it adds a table with the given number to the list.
- * If there are no available tables, it prints a message saying so.
+ * @return The added table.
  */
-void Restaurant::addTable()
+optional<Table> Restaurant::addTable()
 {
     int nTable = tables.size();
-    Table *t = new Table(nTable);
-
-    if (nTable + 1 < numTables && nTable < numTables)
+    if (nTable < numTables)
     {
+        Table t(nTable + 1);
         tables.push_back(t);
-        return;
+        return t;
     }
 
     cout << "Ya no hay más mesas disponibles" << endl;
+    cout << "¡Vuelva pronto!" << endl;
+    exit(0);
 }
 
 /**
@@ -81,6 +70,7 @@ void Restaurant::addMenuItem(MenuItem *item)
  */
 void Restaurant::showMenu()
 {
+    cout << "-----MENU-----" << endl;
     for (int i = 0; i < menu.size(); i++)
     {
         cout << menu[i];

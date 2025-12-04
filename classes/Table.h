@@ -15,6 +15,8 @@ public:
     Table(int number = 1) : number(number) {}
 
     void addOrder(Order order);
+    int getNumber() { return number; }
+    void calculateTotal();
 };
 
 /**
@@ -28,6 +30,26 @@ public:
 void Table::addOrder(Order order)
 {
     orders.push_back(order);
+}
+
+/**
+ * @brief Calculates the total cost of all orders at the table.
+ *
+ * This function loops through all the orders at the table and calculates the total cost of each order.
+ * It then prints out the total cost of each order.
+ *
+ * @details This function uses the `calculateOrder` function of the `Order` class to calculate the total cost of each order.
+ * It then prints out the total cost of each order, preceded by the order number.
+ */
+
+void Table::calculateTotal()
+{
+    for (int i = 0; i < orders.size(); i++)
+    {
+        cout << "Orden " << i + 1 << endl;
+        double total = orders[i].calculateOrder();
+        cout << "Total: $" << total << endl;
+    }
 }
 
 #endif
